@@ -2,6 +2,8 @@
 const express = require('express');
 const router = express.Router();
 
+// 引入User模型
+const User = require('../models/user');
 // 登录路由
 router.post('/login', async (req, res) => {
   try {
