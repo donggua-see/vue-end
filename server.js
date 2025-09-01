@@ -31,11 +31,15 @@ const bcrypt = require('bcryptjs');
 
 // 引入路由模块
 const authRoutes = require('./routes/auth');
-const studentRoutes = require('./routes/students');
+const studentsRouter = require('./routes/students');
+// 添加招生老师路由
+const recruitersRouter = require('./routes/recruiters');
 
 // 使用路由
 app.use('/api/auth', authRoutes);
-app.use('/api/students', studentRoutes);
+app.use('/api/students', studentsRouter);
+// 添加招生老师API路由
+app.use('/api/recruiters', recruitersRouter);
 
 // 基础路由
 app.get('/', (req, res) => {
@@ -56,3 +60,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+module.exports = app;
